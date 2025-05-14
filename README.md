@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Calculator and Cipher App
 
-## Getting Started
+This is a simple web application built with Next.js that includes a calculator and a text cipher tool. The app demonstrates the use of pure functions and unit testing. You can use this app to see how you might add unit tests to your own Next.js app projects during the course.
 
-First, run the development server:
+## What are Pure Functions?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Pure functions are functions that:
+- Always return the same output for the same input
+- Don't have any side effects (they don't change anything outside the function)
+- Don't depend on any external state
+
+For example, in our calculator:
+```javascript
+// This is a pure function
+const add = (a, b) => a + b;
+
+// This is NOT a pure function because it changes something outside (the screen)
+const addAndDisplay = (a, b) => {
+  const result = a + b;
+  document.write(result); // Side effect!
+  return result;
+};
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the Application
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+First, install the dependencies:
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then, start the development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Running Unit Tests
+
+We use Jest for unit testing. Unit tests help us make sure our functions work correctly.
+
+To run the tests:
+```bash
+npm test
+```
+
+To run tests in watch mode (tests will re-run when you make changes):
+```bash
+npm run test:watch
+```
+
+### What are Unit Tests?
+
+Unit tests are small programs that check if our functions work correctly. For example:
+
+```javascript
+// This is a unit test for our add function
+test('adds two numbers correctly', () => {
+  expect(add(2, 3)).toBe(5);
+});
+```
+
+Our tests check:
+- Calculator functions (add, subtract, multiply, divide)
+- Cipher functions (encrypt, decrypt)
+- Error cases (like dividing by zero)
+
+## Project Structure
+
+- `src/utils/` - Contains pure functions
+  - `calculator.js` - Calculator functions
+  - `cipher.js` - Text encryption/decryption functions
+- `src/components/` - Contains React components
+  - `Calculator.js` - Calculator UI
+  - `Cipher.js` - Cipher UI
+- `src/utils/*.test.js` - Unit tests for our functions
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To learn more about:
+- Next.js: [Next.js Documentation](https://nextjs.org/docs)
+- Jest Testing: [Jest Documentation](https://jestjs.io/docs/getting-started)
+- Pure Functions: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Pure_function)
