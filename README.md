@@ -45,11 +45,11 @@ import '@testing-library/jest-dom';
 }
 ```
 
-5. Create a `__tests__` folder in the same directory as the file you want to test. For example, if you have a file at `src/utils/calculator.js`, create `src/utils/__tests__/calculator.test.js`.
+5. Create test files in the same directory as the file you want to test. For example, if you have a file at `src/utils/calculator.js`, create `src/utils/calculator.test.js`.
 
 6. Write your first test! Here's a simple example:
 ```javascript
-// src/utils/__tests__/calculator.test.js
+// src/utils/calculator.test.js
 import { add } from '../calculator';
 
 describe('Calculator', () => {
