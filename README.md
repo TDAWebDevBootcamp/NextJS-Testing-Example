@@ -45,9 +45,9 @@ import '@testing-library/jest-dom';
 }
 ```
 
-5. Create test files in the same directory as the file you want to test. For example, if you have a file at `src/utils/calculator.js`, create `src/utils/calculator.test.js`.
+5. Create test files in the same directory as the file which contains the function you want to test. For example, if you have a file at `src/utils/calculator.js`, create `src/utils/calculator.test.js`. The functions you want to test should be isolated into their own files and be written as pure functions. To learn more about pure functions, refer to the bottom section of this readme file. You cannot test functions which are embedded into page.js files or other component files. They must be isolated into their own files and exported so they can be used in the test file and wherever else they are needed.
 
-6. Write your first test! Here's a simple example:
+7. Write your first test! Here's a simple example:
 ```javascript
 // src/utils/calculator.test.js
 import { add } from '../calculator';
